@@ -5,9 +5,9 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Wobble API Documentation',
-  tablet: 'Wobble API Docs',
-  mobile: 'API Docs'
+  desktop: 'CorpsMap Documentation',
+  tablet: 'CorpsMap Docs',
+  mobile: 'CM Docs'
 };
 
 /**
@@ -19,7 +19,7 @@ module.exports.brandClasses = 'fill-red';
 /**
  * Text for the link back to the linking website.
  */
-module.exports.backLink = 'Back to wobbles.com';
+module.exports.backLink = 'Back to CorpsMap';
 
 /**
  * Runs after highlighting code samples. You can use this

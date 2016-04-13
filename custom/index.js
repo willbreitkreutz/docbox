@@ -20,6 +20,7 @@ module.exports.brandClasses = 'fill-red';
  * Text for the link back to the linking website.
  */
 module.exports.backLink = 'Back to CorpsMap';
+module.exports.backLinkUrl = '/corpsmap-xenon'
 
 /**
  * Runs after highlighting code samples. You can use this

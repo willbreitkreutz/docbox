@@ -10,245 +10,172 @@
     <link href='css/railscasts.css' rel='stylesheet' />
   </head>
   <body>
-    <!--START--><div id='app'><div class="container unlimiter" data-reactid=".nd1xdb4u0w" data-react-checksum="-1803174344"><div class="fixed-top fixed-right space-left16" data-reactid=".nd1xdb4u0w.0"><div class="fill-light col6 pin-right" data-reactid=".nd1xdb4u0w.0.0"></div></div><div class="space-top5 scroll-styled pad1 width16 sidebar fixed-left fill-dark dark" data-reactid=".nd1xdb4u0w.1"><div class="pad0x small" data-reactid=".nd1xdb4u0w.1.0"><div class="small pad0x quiet space-top1" data-reactid=".nd1xdb4u0w.1.0.0:$0">Introduction</div><a href="#our-api" class="line-height15 pad0x pad00y quiet block " data-reactid=".nd1xdb4u0w.1.0.0:$1">Our API</a><div class="small pad0x quiet space-top1" data-reactid=".nd1xdb4u0w.1.0.0:$2">Example</div><a href="#wobble" class="line-height15 pad0x pad00y quiet block " data-reactid=".nd1xdb4u0w.1.0.0:$3">Wobble</a><a href="/" class="space-top2 pad1y dark keyline-top block small quiet" data-reactid=".nd1xdb4u0w.1.0.1">Back to wobbles.com</a></div></div><div class="space-left16" data-reactid=".nd1xdb4u0w.2"><div class="" data-reactid=".nd1xdb4u0w.2.0"><div class="clearfix" data-reactid=".nd1xdb4u0w.2.0.0"><div data-title="Our API" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$0"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$0.0"><h2 id="our-api">Our API</h2>
-<p>Welcome to coolcorp biz! This is our API documentation.</p>
-</div></div><div data-title="Wobble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$1"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$1.0"><h2 id="wobble">Wobble</h2>
-<p>This is our high-quality wobbles API. You can use this API to request
-and remove different wobbles at a low wibble price.</p>
-</div></div><div data-title="List wobbles" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$2"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$2.0"><h3 id="list-wobbles">List wobbles</h3>
-<p>Lists all wobbles for a particular account.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$2.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span></div>
-    </div>
-<h4 id="example-request">Example request</h4>
-<pre><code class="hljs">$ curl https://wobble.biz/wobbles/v1/{username}</code></pre>
-<h4 id="example-response">Example response</h4>
-<pre><code class="hljs">[
-  {
-    <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-    <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-  },
-  {
-    <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-    <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-  }
-]</code></pre>
-</div></div><div data-title="Create wobble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$3"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$3.0"><h3 id="create-wobble">Create wobble</h3>
-<p>Creates a new, empty wobble.</p>
+    <!--START--><div id='app'><div class="container unlimiter" data-reactid=".uf2wqa7sw0" data-react-checksum="-1610721986"><div class="fixed-top fixed-right space-left16" data-reactid=".uf2wqa7sw0.0"><div class="fill-light col6 pin-right" data-reactid=".uf2wqa7sw0.0.0"></div></div><div class="space-top5 scroll-styled pad1 width16 sidebar fixed-left fill-dark dark" data-reactid=".uf2wqa7sw0.1"><div class="pad0x small" data-reactid=".uf2wqa7sw0.1.0"><div class="small pad0x quiet space-top1" data-reactid=".uf2wqa7sw0.1.0.0:$0">Introduction</div><a href="#corpsmap" class="line-height15 pad0x pad00y quiet block " data-reactid=".uf2wqa7sw0.1.0.0:$1">CorpsMap</a><div class="small pad0x quiet space-top1" data-reactid=".uf2wqa7sw0.1.0.0:$2">Client-Side Libraries</div><a href="#corpsmap-xenon" class="line-height15 pad0x pad00y quiet block " data-reactid=".uf2wqa7sw0.1.0.0:$3">CorpsMap-Xenon</a><a href="/corpsmap-xenon" class="space-top2 pad1y dark keyline-top block small quiet" data-reactid=".uf2wqa7sw0.1.0.1">Back to CorpsMap</a></div></div><div class="space-left16" data-reactid=".uf2wqa7sw0.2"><div class="" data-reactid=".uf2wqa7sw0.2.0"><div class="clearfix" data-reactid=".uf2wqa7sw0.2.0.0"><div data-title="CorpsMap" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$0"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$0.0"><h2 id="corpsmap">CorpsMap</h2>
+<p>Welcome to the CorpsMap developer docs.  This page is primarily targeted to developers who want to use the CorpsMap platform to create their own mapping application.</p>
+<p>The platform includes:</p>
+<ul>
+<li>
+<p><a href="#corpsmap-xenon">corpsmap-xenon.js</a></p>
+<p>Client-side mapping library based on React.js / OpenLayers3 / Cesium.js with a plugin architecture for development of new capabilities.</p>
+</li>
+<li>
+<p>corpsmap-argon.js</p>
+</li>
+<li>
+<p>CorpsMap Metadata API</p>
+</li>
+<li>
+<p>CorpsMap Data API</p>
+</li>
+</ul>
+<p>The documentation here is divided roughly in those categories and gives examples of how to use each of the API components.  You should find all the information you need below to get started using the CorpsMap platform for your own projects, the team is also available over slack at <a href="https://corpsmap.slack.com">corpsmap-slack.com</a> if you have any questions.</p>
+</div></div><div data-title="CorpsMap-Xenon" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$1"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$1.0"><h2 id="corpsmap-xenon">CorpsMap-Xenon</h2>
+<p>CorpsMap-Xenon is a flexible mapping application built on React.js, OpenLayers3 and Cesium.js.  The tool provides 2d and 3d viewing of data and a number of basic plugins for interacting with data and services.</p>
+<p>Library specific documentation for help with the major components used in CorpsMap-Xenon are available here:</p>
+<ul>
+<li><a href="https://facebook.github.io/react/">React.js</a></li>
+<li><a href="http://openlayers.org/">OpenLayers3</a></li>
+<li><a href="https://cesiumjs.org/">Cesium.js</a></li>
+<li><a href="http://openlayers.org/ol3-cesium/">Ol3-Cesium Integration Propject</a></li>
+</ul>
+<p>As programs and developers adopt CorpsMap-Xenon for their own use, more plugins will be needed and those should follow the architecture laid out below.</p>
+<p>There are two ways to develop plugins for CorpsMap-Xenon.</p>
+<ol>
+<li>As an integrated plugin that is compiled into the base corpsmap-xenon.js library.</li>
+<li>As a stand-alone .js file that can be included in any html document after the corpsmap-xenon.js library.</li>
+</ol>
+<p>Option 1 will be used for functionality that should be rolled into the primary project to make the plugin available to everyone using the library.  Anyone can pull the project down and develop plugins this way, pushing it back to the main project using a pull request a the project repository in DI2E.  This process is documented <a href="">here</a> (coming soon), please review the contribution docs carefully before submitting a pull request.</p>
+<p>Option 2 makes it easy for anyone to put together a plugin and include it in a single deployment of corpsmap-xenon.js.  This way the developer doesn&#x27;t have to get into the nitty-gritty of the whole development setup.</p>
+<p>We&#x27;ll go through both processes, but the main difference is that plugins developed using Option 1 will be CommonJS modules that are included in the build process and should <code>require()</code> all dependencies.  Plugins using Option 2 will have the main dependencies that they will need available in the global name space, exposed by the corpsmap-xenon.js library.</p>
+</div></div><div data-title="Global Variables" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$2"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$2.0"><h3 id="global-variables">Global Variables</h3>
+<p>To enable Option 2 style plugins, we expose a number of global variables that allow plugins to hook into the application.  Option 1 style plugins should use the CommonJS <code>require()</code> syntax to access libraries rather than using the global variables.</p>
+<p><code>window.CorpsMap</code> is the primary application API and exposes the same object that <a href="#ampersand-app"><code>require(&#x27;ampersand-app&#x27;)</code></a> does when creating Option 1 plugins.</p>
+<p><code>window.React</code> exposes the React.js API to allow creation of new components.</p>
+<p><code>window.Router</code> and it&#x27;s children expose the <a href="https://github.com/reactjs/react-router">react-router</a> API, react-router is used to manage the plugins that expose UI components using the left sidebars.  Most plugins will only need to use the <code>window.ReactRouter.Link</code> component.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".uf2wqa7sw0.2.0.0.$2.1"><h4 id="global-variables-1">Global Variables</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+</div></div><div data-title="Application API" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$3"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$3.0"><h3 id="application-api">Application API</h3>
+<p>The application API is exposed when using the <code>window.CorpsMap</code> global variable or when using <code>var app = require(&#x27;ampersand-app&#x27;)</code> in CommonJS modules inside the project.</p>
 <table>
 <thead>
 <tr>
-<th>Property</th>
+<th>Key</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>name</code></td>
-<td>(optional) the name of the wobble</td>
+<td><code>actions</code></td>
+<td></td>
 </tr>
 <tr>
-<td><code>description</code></td>
-<td>(optional) a description of the wobble</td>
+<td><code>history</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>mapProjection</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>geoProjection</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>optionsStore</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>componentStore</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>layerStore</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>globalStateStore</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ol2d</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ol3d</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>init()</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$3.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span></div>
-    </div>
-<h4 id="example-request-1">Example request</h4>
-<pre><code class="hljs">curl -X POST https://wobble.biz/wobbles/v1/{username}</code></pre>
-<h4 id="example-request-body">Example request body</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>
-}</code></pre>
-<h4 id="example-response-1">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-}</code></pre>
-</div></div><div data-title="Retrieve a wobble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$4"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$4.0"><h3 id="retrieve-a-wobble">Retrieve a wobble</h3>
-<p>Returns a single wobble.</p>
-<p>Retrieve information about an existing wobble.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$4.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span></div>
-    </div>
-<h4 id="example-request-2">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}</code></pre>
-<h4 id="example-response-2">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-}</code></pre>
-</div></div><div data-title="Update a wobble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$5"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$5.0"><h3 id="update-a-wobble">Update a wobble</h3>
-<p>Updates the properties of a particular wobble.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td>(optional) the name of the wobble</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td>(optional) a description of the wobble</td>
-</tr>
-</tbody>
-</table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$5.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PATCH</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span></div>
-    </div>
-<h4 id="example-request-3">Example request</h4>
-<pre><code class="hljs">curl --request PATCH https://wobble.biz/wobbles/v1/{username}/{wobble_id} \
-  <span class="hljs-_">-d</span> @data.json</code></pre>
-<h4 id="example-request-body-1">Example request body</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>
-}</code></pre>
-<h4 id="example-response-3">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wobble_id}"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
-  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
-}</code></pre>
-</div></div><div data-title="Delete a wobble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$6"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$6.0"><h3 id="delete-a-wobble">Delete a wobble</h3>
-<p>Deletes a wobble, including all wibbles it contains.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$6.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span></div>
-    </div>
-<h4 id="example-request-4">Example request</h4>
-<pre><code class="hljs">curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}</code></pre>
-<h4 id="example-response-4">Example response</h4>
-<blockquote>
-<p>HTTP 204</p>
-</blockquote>
-</div></div><div data-title="List wibbles" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$7"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$7.0"><h3 id="list-wibbles">List wibbles</h3>
-<p>List all the wibbles in a wobble. The response body will be a
-WobbleCollection.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$7.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles</div>
-    </div>
-<h4 id="example-request-5">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles</code></pre>
-<h4 id="example-response-5">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"wibbles"</span>: [
-    {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-      <span class="hljs-attr">"properties"</span>: {
-        <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-      }
-    },
-    {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-      <span class="hljs-attr">"properties"</span>: {
-        <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-      }
-    }
-  ]
-}</code></pre>
-</div></div><div data-title="Insert or update a wibble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$8"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$8.0"><h3 id="insert-or-update-a-wibble">Insert or update a wibble</h3>
-<p>Inserts or updates a wibble in a wobble. If there&#x27;s already a wibble
-with the given ID in the wobble, it will be replaced. If there isn&#x27;t
-a wibble with that ID, a new wibble is created.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td>the id of an existing wibble in the wobble</td>
-</tr>
-</tbody>
-</table>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$8.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
-    </div>
-<h4 id="example-request-6">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id} \
-  -X PUT \
-  <span class="hljs-_">-d</span> @file.geojson</code></pre>
-<h4 id="example-request-body-2">Example request body</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-  }
-}</code></pre>
-<h4 id="example-response-6">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-  }
-}</code></pre>
-</div></div><div data-title="Retrieve a wibble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$9"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$9.0"><h3 id="retrieve-a-wibble">Retrieve a wibble</h3>
-<p>Retrieves a wibble in a wobble.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$9.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
-    </div>
-<h4 id="example-request-7">Example request</h4>
-<pre><code class="hljs">curl https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}</code></pre>
-<h4 id="example-response-7">Example response</h4>
-<pre><code class="hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Wobble"</span>,
-  <span class="hljs-attr">"properties"</span>: {
-    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
-  }
-}</code></pre>
-</div></div><div data-title="Delete a wibble" class="keyline-top section contain clearfix " data-reactid=".nd1xdb4u0w.2.0.0.$10"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".nd1xdb4u0w.2.0.0.$10.0"><h3 id="delete-a-wibble">Delete a wibble</h3>
-<p>Removes a wibble from a wobble.</p>
-</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".nd1xdb4u0w.2.0.0.$10.1"><div class='endpoint dark fill-dark round '>
-      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
-      <div class='pad0 code small endpoint-url'>/wobbles/v1/<span class="strong">{username}</span>/<span class="strong">{wobble_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
-    </div>
-<h4 id="example-request-8">Example request</h4>
-<pre><code class="hljs">curl -X DELETE https://wobble.biz/wobbles/v1/{username}/{wobble_id}/wibbles/{wibble_id}</code></pre>
-<h4 id="example-response-8">Example response</h4>
-<blockquote>
-<p>HTTP 204</p>
-</blockquote>
-</div></div></div></div></div><div class="fixed-top space-left16" data-reactid=".nd1xdb4u0w.3"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid=".nd1xdb4u0w.3.0"><div class="space-right1 small quiet inline" data-reactid=".nd1xdb4u0w.3.0.0">Show examples in:</div><div class="rounded-toggle inline short" data-reactid=".nd1xdb4u0w.3.0.1"><a class="strong active" data-reactid=".nd1xdb4u0w.3.0.1.$cURL">cURL</a><a class="strong " data-reactid=".nd1xdb4u0w.3.0.1.$CLI">CLI</a><a class="strong " data-reactid=".nd1xdb4u0w.3.0.1.$Python">Python</a><a class="strong " data-reactid=".nd1xdb4u0w.3.0.1.$JavaScript">JavaScript</a></div><div class="fr pad0" data-reactid=".nd1xdb4u0w.3.0.2"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid=".nd1xdb4u0w.3.0.2.0"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid=".nd1xdb4u0w.4"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid=".nd1xdb4u0w.4.0"></a><div class="strong small pad0
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".uf2wqa7sw0.2.0.0.$3.1"><h4 id="example-component">Example Component</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+</div></div><div data-title="How the Plugins Work" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$4"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$4.0"><h3 id="how-the-plugins-work">How the Plugins Work</h3>
+<p>CorpsMap-Xenon plugins are made up of one or more React.js components and follow the internal <a href="https://facebook.github.io/react/docs/component-specs.html">React.js lifecycle</a> just like any other React component.</p>
+<p>What makes these different is that they must register with the application and tell it where they would like to show up in the user interface.</p>
+<p>Each plugin must have a place where it calls <code>CorpsMap.actions.register()</code> to register its component(s) like in the example to the right.  The register function takes two parameters, the component to be registered, and an options object.  There must be a role key on the options object to register a plugin to a certain region in the App.  Other options can be passed in the options object to be stored and recalled later.  There are more comprehensive examples below.</p>
+<p>Plugins can register components into a number of plugin regions in the UI (plugins can also expose their own plugin regions, more on that later...)</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".uf2wqa7sw0.2.0.0.$4.1"><h4 id="plugin-registration">Plugin Registration</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+</div></div><div data-title="Plugin Regions" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$5"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$5.0"><h3 id="plugin-regions">Plugin Regions</h3>
+<p>There are a number of regions in the UI where plugins can attach components, and some plugins may attach more than one component for example if there is a sidebar button that opens a panel in the primary panel region you would register both components as in the example to the right.</p>
+<p>Note that in the example the path option tells the router when to open the right component in the primary panel and must match the path provided in the link on the icon component.</p>
+<p>Components can be registered with the following roles that will drive where they are displayed in the UI:</p>
+<ul>
+<li><code>&#x27;primary-sidebar&#x27;</code> displays an icon component in the upper-left of the primary sidebar at the left side of the screen.  This should be used for tools that need a panel to expand to be functional.</li>
+</ul>
+<p><img src="./img/primary-sidebar.png" alt="primary-sidebar screenshot"></p>
+<ul>
+<li><code>&#x27;primary-sidebar-bottom&#x27;</code> displays an icon in the left sidebar but at the bottom of the region, like the options and settings tool.</li>
+</ul>
+<p><img src="./img/primary-sidebar-bottom.png" alt="primary-sidebar-bottom screenshot"></p>
+<ul>
+<li><code>&#x27;primary-plugin&#x27;</code> displays a panel component inside the primary panel that expands when a primary icon is clicked. For example the Map Layers panel shown below:</li>
+</ul>
+<p><img src="./img/primary-plugin.png" alt="primary-plugin screenshot"></p>
+<ul>
+<li><code>&#x27;upper-right-toolbar&#x27;</code> displays icons for tools that interact with the map on a single click.  These tools do not natively have access to any panels or other UI components.</li>
+</ul>
+<p><img src="./img/upper-right-toolbar.png" alt="upper-right-toolbar screenshot"></p>
+<ul>
+<li><code>&#x27;lower-right-toolbar&#x27;</code> displays components that need a little horizontal UI, but do not have access to more complicated panel UI components.  Icons can be used in addition to more complicated tools such as the geocoder.</li>
+</ul>
+<p><img src="./img/lower-right-toolbar.png" alt="lower-right-toolbar screenshot"></p>
+<ul>
+<li><code>&#x27;basic-toolbar&#x27;</code>  displays icons for tools that have a toggled state, they are either on or off and interact with the map when turned on.</li>
+</ul>
+<p><img src="./img/basic-toolbar.png" alt="basic-toolbar screenshot"></p>
+<ul>
+<li><code>&#x27;layer-details-toolbar&#x27;</code> displays icon based tools that should act on an individual layer inside that layer&#x27;s details panel.</li>
+</ul>
+<p><img src="./img/layer-details-toolbar.png" alt="layer-details-toolbar screenshot"></p>
+<ul>
+<li><code>&#x27;layer-details-config&#x27;</code> displays more interactive tools that should act on an individual layer inside the panel of that layer&#x27;s detail panel.</li>
+</ul>
+<p><img src="./img/layer-details-config.png" alt="layer-details-config screenshot"></p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".uf2wqa7sw0.2.0.0.$5.1"><h4 id="multi-component-plugin-registration">Multi-Component Plugin Registration</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+</div></div><div data-title="Option 1 Plugin Architecture" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$6"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$6.0"><h3 id="option-1-plugin-architecture">Option 1 Plugin Architecture</h3>
+<p>Option 1 plugins are included in the core project and compiled into corpsmap-xenon.js.  When writing these plugins we can leverage the build system and write CommonJS modules.  The basic requirements for a plugin are the same in either option, you just orgainize your code a little differently.</p>
+<p>A plugin can have one or more React components that will be placed in the UI as well as any number of internal functions that can be leveraged by the plugin.</p>
+<p>The plugin module must export a function called <code>.register()</code> that will register any components with their proper role and path options as applicable.</p>
+<p>Components can be created as part of the main object or externally and only referenced in the register function.</p>
+<p>To add the plugin to the application, you add the require statement to the main app module at <code>src/corpsmap.js</code>. (this is subject to change)</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".uf2wqa7sw0.2.0.0.$6.1"><h4 id="plugin-with-components-included-in-the-module">Plugin with Components included in the module</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+<h4 id="plugin-with-components-outside-of-the-module">Plugin with Components outside of the module</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+</div></div><div data-title="Option 2 Plugin Architecture" class="keyline-top section contain clearfix " data-reactid=".uf2wqa7sw0.2.0.0.$7"><div class="space-bottom8 col6 pad2x prose clip" data-reactid=".uf2wqa7sw0.2.0.0.$7.0"><h3 id="option-2-plugin-architecture">Option 2 Plugin Architecture</h3>
+<p>Option 2 plugins can be placed in a script tag after <code>corpsmap-xenon.js</code> and need to call register inside their own script, that will add them to the component store and the UI.</p>
+<p>The example to the right show what the second Option 1 example would look like if refactored to be an Option 2 style plugin.</p>
+<p>React is available at <code>window.React</code> and the app global is available as <code>window.CorpsMap</code>.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid=".uf2wqa7sw0.2.0.0.$7.1"><h4 id="option-2-style-plugin">Option 2 style Plugin</h4>
+<pre><code class="hljs"><span class="hljs-comment"># Client API not available in cURL</span></code></pre>
+</div></div></div></div></div><div class="fixed-top space-left16" data-reactid=".uf2wqa7sw0.3"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid=".uf2wqa7sw0.3.0"><div class="space-right1 small quiet inline" data-reactid=".uf2wqa7sw0.3.0.0">Show examples in:</div><div class="rounded-toggle inline short" data-reactid=".uf2wqa7sw0.3.0.1"><a class="strong active" data-reactid=".uf2wqa7sw0.3.0.1.$cURL">cURL</a><a class="strong " data-reactid=".uf2wqa7sw0.3.0.1.$CLI">CLI</a><a class="strong " data-reactid=".uf2wqa7sw0.3.0.1.$Python">Python</a><a class="strong " data-reactid=".uf2wqa7sw0.3.0.1.$JavaScript">JavaScript</a></div><div class="fr pad0" data-reactid=".uf2wqa7sw0.3.0.2"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid=".uf2wqa7sw0.3.0.2.0"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid=".uf2wqa7sw0.4"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid=".uf2wqa7sw0.4.0"></a><div class="strong small pad0
           
-          space-left4 line-height15" data-reactid=".nd1xdb4u0w.4.1">Wobble API Documentation</div></div></div></div><!--STOP-->
+          space-left4 line-height15" data-reactid=".uf2wqa7sw0.4.1">CorpsMap Documentation</div></div></div></div><!--STOP-->
     <script src='bundle.js'></script>
   </body>
 </html>

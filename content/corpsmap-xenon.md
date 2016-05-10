@@ -82,17 +82,23 @@ The application API is exposed when using the `window.CorpsMap` global variable 
 
 Key | Description
 --- | ---
-`actions` |
-`history` |
-`mapProjection` |
-`geoProjection` |
-`optionsStore` |
-`componentStore` |
-`layerStore` |
-`globalStateStore` |
-`ol2d` |
-`ol3d` |
-`init()` |
+[`CorpsMap.actions`](#actions) | Application level [Reflux](https://github.com/reflux/refluxjs) actions, more information available [below](#actions).
+`CorpsMap.history` | Stores the navigation history of the `React.Router` that drives the left-side panel system.
+`CorpsMap.mapProjection` | Utility reference to the `ol.proj.Projection` with the EPSG code of 3857, or web mercator, used by the map frame.
+`CorpsMap.geoProjection` | Utility reference to the `ol.proj.Projection` with the EPSG code of 4626, or WGS84, the most common Lat-Lon projection that data will come in.
+[`CorpsMap.optionsStore`](#options) | [Reflux](https://github.com/reflux/refluxjs) store that maintains user options exposed by plugins, more information about options available [below](#options).
+`CorpsMap.componentStore` | [Reflux](https://github.com/reflux/refluxjs) store that contains references to each of the React components exposed by plugins.  The component store is queried by each of the plugin regions to get the components that need to be placed in each of the regions.
+[`CorpsMap.layerStore`](#map-layers) | [Reflux](https://github.com/reflux/refluxjs) store used to manage the map layers that are added to the map and exposed through the layer tree component.  See the section below about [map layers](#map-layers) for more information.
+`CorpsMap.globalStateStore` | [Reflux](https://github.com/reflux/refluxjs) store used to manage generic state for the application.  More infomation can be found in the [global state management](#global-state-management) section.
+`CorpsMap.ol2d` | Reference to the [OpenLayers3](#http://openlayers.org/) map object that is exposed by calling `new ol.Map()`.  This is the primary 2d canvas.
+`CorpsMap.ol3d` | Reference to the OpenLayers3 wrapper on top of [CesiumJS](https://cesiumjs.org/) used for 3d rendering.  Exposed by calling `new olcs.OLCesium()`.
+`CorpsMap.init()` | Function used to initalize the app and render the main component to the DOM in the `<div id="root"></div>` node.  Used internally, should not be called more than once.
+
+### Actions
+
+### Options
+
+### Map Layers
 
 ### How the Plugins Work
 
@@ -100,7 +106,7 @@ CorpsMap-Xenon plugins are made up of one or more React.js components and follow
 
 What makes these different is that they must register with the application and tell it where they would like to show up in the user interface.
 
-Each plugin must have a place where it calls `CorpsMap.actions.register()` to register its component(s) like in the example to the right.  The register function takes two parameters, the component to be registered, and an options object.  There must be a role key on the options object to register a plugin to a certain region in the App.  Other options can be passed in the options object to be stored and recalled later.  There are more comprehensive examples below.
+Each plugin must have a place where it calls `CorpsMap.actions.register()` to register its component(s) like in the example to the right.  The register function takes an object that provides the name of the plugin and an array of components associated with the plugin.  Each component object requires a reference to the React component and a role that describes which plugin region that component should be placed into.  Other options can also be passed in the component object to be stored and recalled later.  There are more comprehensive examples below.
 
 Plugins can register components into a number of plugin regions in the UI (plugins can also expose their own plugin regions, more on that later...)
 
@@ -115,7 +121,13 @@ Plugins can register components into a number of plugin regions in the UI (plugi
 ```
 
 ```javascript
-window.CorpsMap.actions.register(MyComponent, {role: 'layer-details-toolbar'});
+window.CorpsMap.actions.register({
+  pluginName: 'Plugin Name',
+  components:[{
+    component: PluginToolIcon,
+    role:'layer-details-toolbar'
+  }]
+});
 ```
 
 ```python

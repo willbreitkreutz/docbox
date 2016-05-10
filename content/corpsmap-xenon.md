@@ -61,7 +61,7 @@ window.ReactRouter
 
 The application API is exposed when using the `window.CorpsMap` global variable or when using `var app = require('ampersand-app')` in CommonJS modules inside the project.
 
-#### Example Component
+#### Examples
 
 ```curl
 # Client API not available in cURL
@@ -95,6 +95,63 @@ Key | Description
 `CorpsMap.init()` | Function used to initalize the app and render the main component to the DOM in the `<div id="root"></div>` node.  Used internally, should not be called more than once.
 
 ### Actions
+
+Actions are how state is changed by components at lower levels of the application.  If we think of the application as a tree of components, the state is managed at the top of the tree and changes cascade down through the different components.  To make a change at the top, lower level components have to initiate actions, which are basic function calls that the state stores listen to and act upon.
+
+The available actions are:
+
+Action | Description
+--- | ---
+`register` | Used to register components as discussed in the [Plugin Registration](#plugin-registration) section.
+`unregister` | Used to unregister a component and remove it from the plugin regions.
+`addUpdateOption` | Used to add an option to the options list, usually done during plugin registration. See example at right.  More information about options available [below](#options).
+`addlayer` | Used to add a layer to the layer store and to the layer tree view.  See the section below about [map layers](#map-layers) for more information.  Function takes a layer properties object as in the example to the right.  Note that you still have to add the layer to the map separately.
+`removelayer` | Used to remove a layer from the layer store and from the layer tree view, as well as from the map. Function takes a layer id.
+`setvisible` | Used to set visibility on a layer in the map. Function takes a layer id.
+`zoomto` | Used to zoom the map to the extents of a layer if the extents are available, usually requires vector data to work.
+`statechange` | Used to set a key:value on the generic state object, can be used by plugins to manage and listen for state such as changing between 2d and 3d.
+
+#### Example Actions
+
+```curl
+# Client API not available in cURL
+```
+
+```bash
+# Client API not available in bash
+```
+
+```javascript
+// app = window.CorpsMap
+
+// Adding a user option
+var newOption = {
+  _id: pluginKey,
+  value: 'enable',
+  defaultValue: 'enable',
+  ui: true,
+  group: 'Enable/Disable Components',
+  label: plugin.pluginName,
+  type:'toggle',
+  values: ['enable', 'disable']
+}
+app.actions.addUpdateOption(newOption)
+
+// Adding a layer to the app, and the map canvas.
+app.actions.addlayer({
+  id: 'some-layer:id',
+  type: 'point',
+  path: 'test',
+  label: 'TEST layer',
+  visible: false,
+  layer: layer
+});
+app.ol2d.addLayer(layer)
+```
+
+```python
+# Client API not available in Python
+```
 
 ### Options
 
